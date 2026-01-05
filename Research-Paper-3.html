@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Driven Damage Detection for UK Steel Bridges Using Drone-Based Inspection Systems</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <style>
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #005a9c;
+    }
+    .citation {
+      font-size: 0.9em;
+      color: #666;
+    }
+    .section {
+      margin-bottom: 2.5rem;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container py-4">
+
+  <a href="education.html" class="btn btn-outline-primary mb-3">
+    <i class="bi bi-arrow-left"></i> Back
+  </a>
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <h1 class="card-title mb-3">
+        AI-Driven Damage Detection for UK Steel Bridges Using Drone-Based Inspection Systems
+      </h1>
+
+      <p>
+  +
+  
+        <strong>Research Interest Area:</strong> Structural Health Monitoring, AI & Smart Infrastructure<br>
+    
+      </p>
+
+      <!-- ABSTRACT -->
+      <div class="section">
+        <h2>Abstract</h2>
+        <p>
+          The United Kingdom manages an ageing stock of steel bridges that are critical to national transport
+          infrastructure. Traditional inspection methods rely heavily on manual visual surveys, which are
+          time-consuming, costly, hazardous, and subject to human bias. This research interest explores the
+          integration of unmanned aerial vehicles (UAVs) and artificial intelligence (AI) techniques to
+          automate and enhance damage detection in UK steel bridges.
+        </p>
+        <p>
+          By leveraging high-resolution drone imagery, computer vision, and deep learning models, the study
+          aims to identify, classify, and quantify common steel bridge defects such as corrosion, fatigue
+          cracking, section loss, and coating degradation. The research seeks to improve inspection accuracy,
+          reduce lifecycle costs, and support data-driven maintenance decision-making aligned with UK bridge
+          management standards.
+        </p>
+      </div>
+
+      <!-- INTRODUCTION -->
+      <div class="section">
+        <h2>1. Introduction</h2>
+        <p>
+          The UK bridge network includes thousands of steel bridges constructed during the late 19th and
+          mid-20th centuries. Many of these structures are now operating beyond their original design life,
+          facing increased loading demands and environmental exposure.
+        </p>
+        <p>
+          Current inspection practices, as outlined in the Design Manual for Roads and Bridges (DMRB),
+          primarily depend on periodic visual inspections. These inspections often require lane closures,
+          scaffolding, or rope access, leading to safety risks and operational disruption. Advances in drone
+          technology and AI provide an opportunity to transform bridge inspection into a safer, faster, and
+          more objective process.
+        </p>
+        <p class="citation">
+          [1] UK Department for Transport. (2022). <em>Design Manual for Roads and Bridges (DMRB)</em>.
+        </p>
+      </div>
+
+      <!-- DAMAGE MECHANISMS -->
+      <div class="section">
+        <h2>2. Common Damage Mechanisms in UK Steel Bridges</h2>
+        <ul>
+          <li><strong>Corrosion:</strong> General corrosion, pitting, and section loss due to moisture, de-icing salts, and marine exposure.</li>
+          <li><strong>Fatigue Cracking:</strong> Cracks at welded details, riveted connections, and stress concentration zones.</li>
+          <li><strong>Coating Failure:</strong> Paint delamination and breakdown accelerating corrosion processes.</li>
+          <li><strong>Deformation:</strong> Buckling or distortion of steel members caused by overloading or impact.</li>
+          <li><strong>Connection Defects:</strong> Loose, missing, or deteriorated bolts and rivets.</li>
+        </ul>
+        <p class="citation">
+          [2] Network Rail. (2021). <em>Steel Bridge Asset Management Guidance</em>.
+        </p>
+      </div>
+
+      <!-- DRONE SYSTEMS -->
+      <div class="section">
+        <h2>3. Drone-Based Inspection Systems</h2>
+        <p>
+          UAVs equipped with advanced sensors enable close-range inspection of hard-to-access bridge components.
+          Typical drone payloads include:
+        </p>
+        <ul>
+          <li>High-resolution RGB cameras for visual defect detection</li>
+          <li>Thermal cameras for moisture ingress and delamination assessment</li>
+          <li>LiDAR sensors for geometry capture and deformation analysis</li>
+          <li>RTK-GNSS and inertial navigation for accurate georeferencing</li>
+        </ul>
+        <p>
+          Drone inspections significantly reduce inspection time and eliminate the need for scaffolding or
+          traffic disruption, making them particularly suitable for busy UK transport corridors.
+        </p>
+      </div>
+
+      <!-- AI METHODS -->
+      <div class="section">
+        <h2>4. AI and Computer Vision Techniques</h2>
+        <p>
+          AI-driven damage detection relies on machine learning and deep learning algorithms trained on
+          annotated bridge imagery. Key techniques include:
+        </p>
+        <ul>
+          <li><strong>Convolutional Neural Networks (CNNs):</strong> For image classification and defect recognition</li>
+          <li><strong>Object Detection Models:</strong> YOLO, Faster R-CNN, and SSD for locating defects</li>
+          <li><strong>Semantic Segmentation:</strong> Pixel-level damage mapping using U-Net or DeepLab</li>
+          <li><strong>Transfer Learning:</strong> Adapting pre-trained models to bridge-specific datasets</li>
+        </ul>
+        <p>
+          These models can automatically classify damage severity and generate condition ratings compatible
+          with existing asset management systems.
+        </p>
+      </div>
+
+      <!-- DATASETS -->
+      <div class="section">
+        <h2>5. Data Acquisition and Training Challenges</h2>
+        <p>
+          A major challenge in AI-based bridge inspection is the availability of high-quality labelled data.
+          UK-specific steel bridge datasets are limited due to data ownership, safety constraints, and
+          variability in bridge typologies.
+        </p>
+        <ul>
+          <li>Limited publicly available steel bridge defect datasets</li>
+          <li>Class imbalance between damaged and undamaged regions</li>
+          <li>Variability in lighting, weather, and surface conditions</li>
+          <li>Need for expert annotation by structural engineers</li>
+        </ul>
+      </div>
+
+      <!-- REGULATORY -->
+      <div class="section">
+        <h2>6. Regulatory and Ethical Considerations</h2>
+        <p>
+          Drone operations in the UK must comply with Civil Aviation Authority (CAA) regulations, including
+          airspace restrictions, pilot certification, and data privacy laws. Additionally, AI systems used
+          in safety-critical infrastructure must be transparent, explainable, and auditable.
+        </p>
+        <p class="citation">
+          [3] UK Civil Aviation Authority. (2023). <em>CAP 722: Unmanned Aircraft System Operations</em>.
+        </p>
+      </div>
+
+      <!-- FUTURE WORK -->
+      <div class="section">
+        <h2>7. Future Research Directions</h2>
+        <ul>
+          <li>Integration of AI outputs with BIM and digital twin platforms</li>
+          <li>Real-time onboard damage detection using edge computing</li>
+          <li>Fusion of visual data with structural sensors (strain, vibration)</li>
+          <li>Automated condition rating aligned with DMRB standards</li>
+        </ul>
+      </div>
+
+      <!-- CONCLUSION -->
+      <div class="section">
+        <h2>8. Conclusion</h2>
+        <p>
+          AI-driven drone-based inspection represents a transformative approach to managing the UK’s ageing
+          steel bridge infrastructure. By improving inspection efficiency, safety, and objectivity, this
+          research area supports the transition toward smart, data-driven infrastructure management and
+          long-term asset resilience.
+        </p>
+      </div>
+
+      <!-- REFERENCES -->
+      <div class="section">
+        <h2>References</h2>
+        <ol>
+          <li>UK Department for Transport. (2022). <em>Design Manual for Roads and Bridges</em>.</li>
+          <li>Network Rail. (2021). <em>Steel Bridge Asset Management Guidance</em>.</li>
+          <li>UK Civil Aviation Authority. (2023). <em>CAP 722: Unmanned Aircraft System Operations</em>.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

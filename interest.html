@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interest - Emmanuel Oroto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    body { background:#f8f9fa; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.9rem;
+      margin: 0.25rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      background: #e9ecef;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, transform 0.08s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      user-select: none;
+    }
+    .chip:hover { transform: translateY(-2px); }
+    .chip.active {
+      background: #0d6efd;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(13,110,253,0.18);
+    }
+    .chip i { margin-right: 0.55rem; font-size: 1.15rem; }
+
+    /* carousel layout: show full image without cropping */
+    #interestCarousel .carousel-item {
+      position: relative;
+      text-align: center;
+      min-height: 200px;
+      background-color: transparent;
+      overflow: hidden;
+    }
+    #interestCarousel .carousel-item img {
+      max-height: 320px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: inline-block;
+      margin: 0 auto;
+      transition: transform .6s ease;
+    }
+    @media (max-width:576px) {
+      #interestCarousel .carousel-item img { max-height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <a href="Bootstrap Example.html" class="btn btn-outline-primary mb-3">
+      <i class="bi bi-arrow-left"></i> Back to Portfolio
+    </a>
+
+    <h1 class="mb-3 text-primary">Interest</h1>
+    <p class="mb-4">
+      My interests span reading, movies, sports & entertainment, travel, photography, and coding. Click a chip to see a brief description and rotating images.
+    </p>
+
+    <div id="chips" class="mb-4">
+      <span class="chip" data-interest="Reading" onclick="selectInterest(event)"><i class="bi bi-book"></i>Reading</span>
+      <span class="chip" data-interest="Movies" onclick="selectInterest(event)"><i class="bi bi-film"></i>Movies</span>
+      <span class="chip" data-interest="Web Development & Coding" onclick="selectInterest(event)"><i class="bi bi-code-slash"></i>Web Development & Coding</span>
+      <span class="chip" data-interest="Sports & Entertainment" onclick="selectInterest(event)"><i class="bi bi-trophy"></i>Sports & Entertainment</span>
+      <span class="chip" data-interest="Tourism" onclick="selectInterest(event)"><i class="bi bi-geo-alt"></i>Tourism</span>
+      <span class="chip" data-interest="Photography" onclick="selectInterest(event)"><i class="bi bi-camera"></i>Photography</span>
+    </div>
+
+    <div id="interestDesc" class="alert alert-info d-none"></div>
+
+    <div id="booksCarouselContainer" class="d-none">
+      <div id="interestCarousel" class="carousel slide" aria-label="Interest images carousel">
+        <div class="carousel-indicators" id="carouselIndicators"></div>
+        <div class="carousel-inner" id="carouselInner"></div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#interestCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#interestCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="text-muted small mt-2">Images auto-rotate. Use controls to navigate.</div>
+    </div>
+  </div>
+
+  <!-- load Bootstrap JS bundle before custom script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const descriptions = {
+      "Reading": "I enjoy reading books and articles on engineering, technology, and personal development.",
+      "Movies": "Watching movies is a favorite pastime, especially those that inspire creativity and innovation.",
+      "Web Development & Coding": "I love learning new programming languages and building modern web applications.",
+      "Sports & Entertainment": "I follow various sports and enjoy entertainment events that bring people together. I support North Queensland Cowboys in the NRL game. I am also a big fan of Liverpool FC in the English Premier League and support England in the FIFA World Cup.",
+      "Tourism": "Exploring new places and cultures is exciting and brings fresh perspectives",
+      "Photography": "I enjoy capturing moments and landscapes through photography."
+    };
+
+    const images = {
+      "Reading": [
+        "IMG_0033.webp",
+        "R (3).jpg",
+        "61IxJuRI39L._AC_UF1000,1000_QL80_.jpg",
+        "Screenshot 2025-11-01 211704.png",
+        "64304b394945a32f65bdb122e1f8d6d5.jpg_720x720q80.jpg"
+      ],
+      "Movies": [
+        "gettyimages-2215903682-612x612.jpg",
+        "trailer-run-6-london-has-fallen-secrets-in-their-eyes-steve-jobs-creed-485941.jpg",
+        "the-foreigner-2017-1630706275.jpg",
+        "p173532_v_h10_aj.jpg",
+        "MV5BODU0MjBkNmEtNGVkZi00MjcwLWJlY2EtMGFlN2I1ODY2YzVkXkEyXkFqcGc@._V1_.jpg",
+        "maxresdefault-2.jpeg"
+      ],
+      "Web Development & Coding": [
+        "product-130298-product-shots1.webp",
+        "web-programming-languages.webp",
+        "Importance-of-Web-Design-and-Development.jpg",
+        "software-development.webp",
+        "Best-Programming-Languages-for-Web-Development.jpg"
+      ],
+      "Sports & Entertainment": [
+        "682bc6646159dc048d48a4ddb0223dda.avif",
+        "GettyImages-2212273933-scaled.jpg",
+        "England-World-Cup-Squad.webp",
+        "DSC_4264-M.jpg"
+      ],
+      "Tourism": [
+        "conflict-islands_milne-bay_papua-new-guinea_9.jpg",
+        "papuanew-guinea-milne-bay-province-blue-sky-over-sandy-coastal-beach-of-conflict-islands-in-summer-THAF02638.jpg",
+        "conflict-islands_milne-bay_papua-new-guinea_1-819x1024.webp"
+      ],
+      "Photography": [
+        "photography-camera-learning-feature.webp",
+        "pexels-asphotography-212372.jpg",
+        "pexels-alex-andrews-271121-821749.jpg"
+      ]
+    };
+
+    // mark active chip
+    function setActiveChip(interest) {
+      document.querySelectorAll('#chips .chip').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('data-interest') === interest);
+      });
+    }
+
+    // build carousel DOM and manage single Bootstrap instance
+    function buildCarousel(interest) {
+      const container = document.getElementById('booksCarouselContainer');
+      const inner = document.getElementById('carouselInner');
+      const indicators = document.getElementById('carouselIndicators');
+
+      // clear previous content
+      inner.innerHTML = '';
+      indicators.innerHTML = '';
+
+      const imgs = images[interest] || [];
+
+      // create slides and indicators
+      imgs.forEach((src, idx) => {
+        const item = document.createElement('div');
+        item.className = 'carousel-item' + (idx === 0 ? ' active' : '');
+        item.setAttribute('role', 'group');
+        item.setAttribute('aria-label', `${interest} image ${idx + 1}`);
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = 'd-block mx-auto img-fluid';
+        img.alt = `${interest} image ${idx + 1}`;
+        img.loading = 'lazy';
+        item.appendChild(img);
+        inner.appendChild(item);
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.setAttribute('data-bs-target', '#interestCarousel');
+        button.setAttribute('data-bs-slide-to', String(idx));
+        button.setAttribute('aria-label', `${interest} slide ${idx + 1}`);
+        if (idx === 0) {
+          button.className = 'active';
+          button.setAttribute('aria-current', 'true');
+        }
+        indicators.appendChild(button);
+      });
+
+      const carouselEl = document.getElementById('interestCarousel');
+      if (!carouselEl) return;
+
+      // dispose existing instance if present
+      let existing = null;
+      if (window.bootstrap && bootstrap.Carousel && typeof bootstrap.Carousel.getInstance === 'function') {
+        existing = bootstrap.Carousel.getInstance(carouselEl);
+      }
+      if (existing) {
+        existing.pause();
+        existing.dispose();
+      }
+
+      if (imgs.length) {
+        container.classList.remove('d-none');
+
+        // create a fresh instance and configure auto-rotation
+        const carousel = new bootstrap.Carousel(carouselEl, {
+          interval: 3000,
+          touch: true,
+          pause: 'hover',
+          ride: false
+        });
+
+        // ensure first slide is selected and start cycling
+        try { carousel.to(0); } catch (e) { /* ignore if can't seek */ }
+        carousel.cycle();
+      } else {
+        container.classList.add('d-none');
+      }
+    }
+
+    // chip click handler
+    function selectInterest(e) {
+      // support being called either with an Event or a synthetic object with currentTarget
+      const el = (e && e.currentTarget) || (e && e.target) || e;
+      if (!el || !el.getAttribute) return;
+
+      const interest = el.getAttribute('data-interest');
+      if (!interest) return;
+
+      const descBox = document.getElementById('interestDesc');
+
+      setActiveChip(interest);
+      descBox.textContent = descriptions[interest] || '';
+      descBox.classList.remove('d-none');
+
+      buildCarousel(interest);
+    }
+
+    // initialize default selection after DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      const defaultChip = document.querySelector('#chips .chip[data-interest="Reading"]');
+      if (defaultChip) {
+        // call the handler directly to avoid generating a DOM click event
+        selectInterest({ currentTarget: defaultChip });
+      }
+    });
+  </script>
+</body>
+</html>
